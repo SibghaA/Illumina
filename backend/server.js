@@ -1,11 +1,15 @@
-const express = require("express");
-const cors = require("cors");
-const path = require("path");
-const mentorRoutes = require("./routes/mentors");
-const authRoutes = require("./routes/auth");
-const userRoutes = require("./routes/users");
-const contactRoutes = require("./routes/contact");
-const connectionsRoutes = require("./routes/connections");
+import express from "express";
+import cors from "cors";
+import path from "path";
+import { fileURLToPath } from 'url';
+import mentorRoutes from "./routes/mentors.js";
+import authRoutes from "./routes/auth.js";
+import userRoutes from "./routes/users.js";
+import contactRoutes from "./routes/contact.js";
+import connectionsRoutes from "./routes/connections.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 3000;

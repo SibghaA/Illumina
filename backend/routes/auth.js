@@ -1,9 +1,7 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
 
-
 const users = [];
-
 
 router.post("/login", (req, res) => {
   const { email, password } = req.body;
@@ -25,7 +23,6 @@ router.post("/login", (req, res) => {
     });
   }
 });
-
 
 router.post("/signup", async (req, res) => {
   try {
@@ -57,4 +54,4 @@ router.post("/signup", async (req, res) => {
   }
 });
 
-module.exports = router; 
+export default router; 

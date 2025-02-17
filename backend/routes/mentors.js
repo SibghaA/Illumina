@@ -1,12 +1,14 @@
-const express = require("express");
+import express from "express";
+import { promises as fs } from "fs";
+import path from "path";
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const router = express.Router();
-const fs = require("fs").promises;
-const path = require("path");
-
-
 const dataDir = path.join(__dirname, "../data");
 const mentorsPath = path.join(dataDir, "mentors.json");
-
 
 const defaultMentors = [
   {
@@ -63,7 +65,6 @@ const defaultMentors = [
   }
 ];
 
-
 async function ensureMentorsFile() {
   try {
         
@@ -91,7 +92,6 @@ async function ensureMentorsFile() {
   }
 }
 
-
 router.get("/", async (req, res) => {
   try {
     await ensureMentorsFile();
@@ -102,7 +102,6 @@ router.get("/", async (req, res) => {
     res.status(500).json({ message: "Failed to get mentors" });
   }
 });
-
 
 router.get("/:id", async (req, res) => {
   try {
@@ -123,7 +122,6 @@ router.get("/:id", async (req, res) => {
     res.status(500).json({ message: "Failed to get mentor" });
   }
 });
-
 
 router.post("/", async (req, res) => {
   try {
@@ -152,4 +150,4 @@ router.post("/", async (req, res) => {
   }
 });
 
-module.exports = router; 
+export default router; 

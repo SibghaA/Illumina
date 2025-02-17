@@ -1,12 +1,14 @@
-const express = require("express");
+import express from "express";
+import { promises as fs } from "fs";
+import path from "path";
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const router = express.Router();
-const fs = require("fs").promises;
-const path = require("path");
-
-
 const dataDir = path.join(__dirname, "../data");
 const messagesPath = path.join(dataDir, "messages.json");
-
 
 async function ensureMessagesFile() {
   try {
@@ -29,13 +31,11 @@ async function ensureMessagesFile() {
   }
 }
 
-
 router.get("/", async (req, res) => {
   await ensureMessagesFile();
   const messages = await fs.readFile(messagesPath, "utf8");
   res.json(JSON.parse(messages));
 });
-
 
 router.post("/", async (req, res) => {
   try {
@@ -72,4 +72,4 @@ router.post("/", async (req, res) => {
   }
 });
 
-module.exports = router; 
+export default router; 
