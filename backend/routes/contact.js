@@ -1,64 +1,33 @@
 import express from "express";
-import { promises as fs } from "fs";
-import path from "path";
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+import { connectToDatabase } from "../db/mongodb.js";
 
 const router = express.Router();
-const dataDir = path.join(__dirname, "../data");
-const messagesPath = path.join(dataDir, "messages.json");
-
-async function ensureMessagesFile() {
-  try {
-        
-    try {
-      await fs.access(dataDir);
-    } catch {
-      await fs.mkdir(dataDir, { recursive: true });
-    }
-
-        
-    try {
-      await fs.access(messagesPath);
-    } catch {
-      await fs.writeFile(messagesPath, "[]");
-    }
-  } catch (error) {
-    console.error("Error ensuring messages file exists:", error);
-    throw error;
-  }
-}
 
 router.get("/", async (req, res) => {
-  await ensureMessagesFile();
-  const messages = await fs.readFile(messagesPath, "utf8");
-  res.json(JSON.parse(messages));
+  try {
+    const db = await connectToDatabase();
+    const messages = await db.collection("messages").find({}).toArray();
+    res.json(messages);
+  } catch (error) {
+    console.error("Error getting messages:", error);
+    res.status(500).json({ message: "Failed to get messages" });
+  }
 });
 
 router.post("/", async (req, res) => {
   try {
-    await ensureMessagesFile();
+    const db = await connectToDatabase();
     const { name, email, message } = req.body;
-        
-        
-    const messages = JSON.parse(await fs.readFile(messagesPath, "utf8"));
-        
-        
+    
     const newMessage = {
-      id: messages.length + 1,
       name,
       email,
       message,
       timestamp: new Date().toISOString()
     };
-        
-    messages.push(newMessage);
-        
-        
-    await fs.writeFile(messagesPath, JSON.stringify(messages, null, 2));
-        
+    
+    await db.collection("messages").insertOne(newMessage);
+    
     res.status(201).json({
       success: true,
       message: "Message sent successfully"

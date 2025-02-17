@@ -2,11 +2,13 @@ import express from "express";
 import cors from "cors";
 import path from "path";
 import { fileURLToPath } from 'url';
+import { connectToDatabase } from "./db/mongodb.js";
 import mentorRoutes from "./routes/mentors.js";
 import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/users.js";
 import contactRoutes from "./routes/contact.js";
 import connectionsRoutes from "./routes/connections.js";
+import 'dotenv/config';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -14,6 +16,13 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Initialize MongoDB connection
+connectToDatabase().then(() => {
+  console.log("MongoDB connection initialized");
+}).catch(error => {
+  console.error("Failed to initialize MongoDB connection:", error);
+  process.exit(1);
+});
 
 app.use(cors());
 app.use(express.json());

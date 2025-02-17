@@ -1,14 +1,8 @@
 import express from "express";
-import { promises as fs } from "fs";
-import path from "path";
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+import { connectToDatabase } from "../db/mongodb.js";
+import { ObjectId } from "mongodb";
 
 const router = express.Router();
-const dataDir = path.join(__dirname, "../data");
-const mentorsPath = path.join(dataDir, "mentors.json");
 
 const defaultMentors = [
   {
@@ -65,37 +59,25 @@ const defaultMentors = [
   }
 ];
 
-async function ensureMentorsFile() {
+async function ensureMentorsExist() {
   try {
-        
-    try {
-      await fs.access(dataDir);
-    } catch {
-      await fs.mkdir(dataDir, { recursive: true });
-    }
-
-        
-    try {
-      await fs.access(mentorsPath);
-      const content = await fs.readFile(mentorsPath, "utf8");
-      const mentors = JSON.parse(content);
-      if (mentors.length === 0) {
-        await fs.writeFile(mentorsPath, JSON.stringify(defaultMentors, null, 2));
-      }
-    } catch {
-            
-      await fs.writeFile(mentorsPath, JSON.stringify(defaultMentors, null, 2));
+    const db = await connectToDatabase();
+    const count = await db.collection("mentors").countDocuments();
+    
+    if (count === 0) {
+      await db.collection("mentors").insertMany(defaultMentors);
     }
   } catch (error) {
-    console.error("Error ensuring mentors file exists:", error);
+    console.error("Error ensuring mentors exist:", error);
     throw error;
   }
 }
 
 router.get("/", async (req, res) => {
   try {
-    await ensureMentorsFile();
-    const mentors = JSON.parse(await fs.readFile(mentorsPath, "utf8"));
+    const db = await connectToDatabase();
+    await ensureMentorsExist();
+    const mentors = await db.collection("mentors").find({}).toArray();
     res.json(mentors);
   } catch (error) {
     console.error("Error getting mentors:", error);
@@ -105,11 +87,15 @@ router.get("/", async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   try {
-    await ensureMentorsFile();
-    const mentors = JSON.parse(await fs.readFile(mentorsPath, "utf8"));
-    const mentorId = parseInt(req.params.id);
-    const mentor = mentors.find(m => m.id === mentorId);
-        
+    const db = await connectToDatabase();
+    const mentorId = req.params.id;
+    const mentor = await db.collection("mentors").findOne({ 
+      $or: [
+        { _id: ObjectId.isValid(mentorId) ? new ObjectId(mentorId) : null },
+        { id: parseInt(mentorId) }
+      ]
+    });
+    
     if (mentor) {
       res.json(mentor);
     } else {
@@ -125,11 +111,9 @@ router.get("/:id", async (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
-    await ensureMentorsFile();
-    const mentors = JSON.parse(await fs.readFile(mentorsPath, "utf8"));
-        
+    const db = await connectToDatabase();
+    
     const newMentor = {
-      id: mentors.length + 1,
       firstName: req.body.firstName,
       lastName: req.body.lastName,
       profession: req.body.profession,
@@ -139,11 +123,13 @@ router.post("/", async (req, res) => {
       availability: req.body.availability,
       email: req.body.email
     };
-        
-    mentors.push(newMentor);
-    await fs.writeFile(mentorsPath, JSON.stringify(mentors, null, 2));
-        
-    res.status(201).json(newMentor);
+    
+    const result = await db.collection("mentors").insertOne(newMentor);
+    
+    res.status(201).json({
+      ...newMentor,
+      _id: result.insertedId
+    });
   } catch (error) {
     console.error("Error adding mentor:", error);
     res.status(500).json({ message: "Failed to add mentor" });
