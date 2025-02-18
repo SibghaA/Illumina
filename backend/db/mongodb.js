@@ -1,6 +1,7 @@
 import { MongoClient } from 'mongodb';
+import dotenv from 'dotenv';
 
-const uri = `mongodb+srv://sibghaahmad10:${process.env.MONGODB_PASSWORD}@cluster0.yvb1c.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
+const uri = dotenv.config().parsed.MONGODB_URI;
 const client = new MongoClient(uri);
 
 let db;
@@ -11,7 +12,7 @@ async function connectToDatabase() {
       throw new Error('MONGODB_PASSWORD environment variable is not set');
     }
     await client.connect();
-    db = client.db("Illumina");
+    db = client.db(process.env.MONGODB_DATABASE || "Illumina");
     console.log("Connected to MongoDB");
     return db;
   } catch (error) {
@@ -20,4 +21,8 @@ async function connectToDatabase() {
   }
 }
 
-export { connectToDatabase, client }; 
+function getCollection(collectionName) {
+    return db.collection(collectionName);
+}
+
+export { connectToDatabase, getCollection, client }; 
