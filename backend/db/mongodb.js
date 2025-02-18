@@ -8,11 +8,11 @@ let db;
 
 async function connectToDatabase() {
   try {
-    if (!process.env.MONGODB_PASSWORD) {
+    if (!uri) {
       throw new Error("MONGODB_PASSWORD environment variable is not set");
     }
     await client.connect();
-    db = client.db(process.env.MONGODB_DATABASE || "Illumina");
+    db = client.db("Illumina");
     console.log("Connected to MongoDB");
     return db;
   } catch (error) {
