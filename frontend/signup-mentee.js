@@ -19,36 +19,31 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    try {
-      const response = await fetch("/api/auth/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ...data,
-          userType: "mentee",
-        }),
-      });
+    const response = await fetch("/api/auth/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        ...data,
+        userType: "mentee",
+      }),
+    });
 
-      if (response.ok) {
-        notification.textContent = "Successfully signed up! Redirecting to homepage...";
-        notification.classList.add("show");
-
-        form.classList.add("submitting");
-
-        setTimeout(() => {
-          window.location.href = "/";
-        }, 2000);
-      } else {
-        const error = await response.json();
-        throw new Error(error.message || "Failed to sign up");
-      }
-    } catch (error) {
-      notification.textContent = error.message;
-      notification.style.backgroundColor = "#dc3545";
+    if (response.ok) {
+      notification.textContent = "Successfully signed up! Redirecting to homepage...";
       notification.classList.add("show");
-      setTimeout(() => notification.classList.remove("show"), 3000);
+
+      form.classList.add("submitting");
+
+    } else {
+      const error = await response.json();
+      console.error(error.message || "Failed to sign up");
     }
   });
+
+  setTimeout(() => {
+    window.location.href = "/";
+  }, 2000);
+
 });
