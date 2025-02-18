@@ -20,7 +20,7 @@ Sibgha Ahmad
 - Video demo: https://www.youtube.com/watch?v=e6gXassO2K0
 - Slides: https://docs.google.com/presentation/d/1qOqPpmcJtzRFH6_-W_OOae8TKyTLPSprUcsNz1nzoas/edit#slide=id.g218a6db239b_0_0
 - Design Document: https://docs.google.com/document/d/1OnWGNHL43OjSklnoUQiKFEnq0m7vwo3Iz1cmOtvL5hE/edit?usp=sharing
-- Deployed Application: https://illumina-bdmas7zug-sibgha-ahmads-projects.vercel.app/frontend/index.html
+- Deployed Application: https://illumina-r8woazknx-sibgha-ahmads-projects.vercel.app
 
 
 ## Features
