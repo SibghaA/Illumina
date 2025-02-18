@@ -7,7 +7,7 @@ router.post("/", async (req, res) => {
   try {
     const db = await connectToDatabase();
     const connections = db.collection("connections");
-    
+
     const newConnection = {
       mentorId: req.body.mentorId,
       mentorName: req.body.mentorName,
@@ -17,23 +17,23 @@ router.post("/", async (req, res) => {
       message: req.body.message,
       goals: req.body.goals,
       status: "pending",
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
     };
-    
+
     const result = await connections.insertOne(newConnection);
-    
+
     res.status(201).json({
       success: true,
       message: "Connection request sent successfully",
-      connectionId: result.insertedId
+      connectionId: result.insertedId,
     });
   } catch (error) {
     console.error("Error saving connection request:", error);
     res.status(500).json({
       success: false,
-      message: "Failed to send connection request"
+      message: "Failed to send connection request",
     });
   }
 });
 
-export default router; 
+export default router;

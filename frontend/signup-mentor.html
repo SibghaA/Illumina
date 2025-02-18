@@ -1,95 +1,94 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up as Mentor - Illumina</title>
-    <link rel="stylesheet" href="css/signup-styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/signup-styles.css" />
+  </head>
+  <body>
     <header>
-        <nav>
-            <div class="nav-links">
-                <a href="/frontend/index.html">Home</a>
-                <a href="/frontend/about.html">About</a>
-            </div>
-        </nav>
+      <nav>
+        <div class="nav-links">
+          <a href="/frontend/index.html">Home</a>
+          <a href="/frontend/about.html">About</a>
+        </div>
+      </nav>
     </header>
     <div class="container">
-        <form id="mentorSignupForm" class="signup-form">
-            <h2>Sign Up as a Mentor</h2>
-            
-            <section class="form-section">
-                <h3>Basic Information</h3>
-                <div class="form-group">
-                    <label for="firstName">First Name</label>
-                    <input type="text" id="firstName" name="firstName" required>
-                </div>
-                <div class="form-group">
-                    <label for="lastName">Last Name</label>
-                    <input type="text" id="lastName" name="lastName" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="dob">Date of Birth</label>
-                    <input type="date" id="dob" name="dob" required>
-                </div>
-                <div class="form-group">
-                    <label for="location">Location</label>
-                    <input type="text" id="location" name="location" required>
-                </div>
-            </section>
+      <form id="mentorSignupForm" class="signup-form">
+        <h2>Sign Up as a Mentor</h2>
 
-            <section class="form-section">
-                <h3>Professional Experience</h3>
-                <div class="form-group">
-                    <label for="profession">Current Profession</label>
-                    <input type="text" id="profession" name="profession" required>
-                </div>
-                <div class="form-group">
-                    <label for="experience">Years of Experience</label>
-                    <input type="number" id="experience" name="experience" min="0" required>
-                </div>
-                <div class="form-group">
-                    <label for="expertise">Areas of Expertise</label>
-                    <select multiple id="expertise" name="expertise" required>
-                        <option value="technology">Technology</option>
-                        <option value="business">Business</option>
-                        <option value="marketing">Marketing</option>
-                        <option value="finance">Finance</option>
-                        <option value="healthcare">Healthcare</option>
-                        <option value="education">Education</option>
-                        <option value="leadership">Leadership</option>
-                        <option value="entrepreneurship">Entrepreneurship</option>
-                    </select>
-                    <small>Hold Ctrl/Cmd to select multiple areas</small>
-                </div>
-                <div class="form-group">
-                    <label for="previousMentoring">Previous Mentoring Experience</label>
-                    <textarea id="previousMentoring" name="previousMentoring" rows="4"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="availability">Weekly Availability (hours)</label>
-                    <input type="number" id="availability" name="availability" min="1" max="40" required>
-                </div>
-                <div class="form-group">
-                    <label for="mentorMotivation">Why do you want to be a mentor?</label>
-                    <textarea id="mentorMotivation" name="mentorMotivation" rows="4" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="mentorStyle">What is your mentoring style?</label>
-                    <textarea id="mentorStyle" name="mentorStyle" rows="4" required></textarea>
-                </div>
-            </section>
+        <section class="form-section">
+          <h3>Basic Information</h3>
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" required />
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" name="dob" required />
+          </div>
+          <div class="form-group">
+            <label for="location">Location</label>
+            <input type="text" id="location" name="location" required />
+          </div>
+        </section>
 
-            <button type="submit" class="submit-btn">Submit</button>
-        </form>
+        <section class="form-section">
+          <h3>Professional Experience</h3>
+          <div class="form-group">
+            <label for="profession">Current Profession</label>
+            <input type="text" id="profession" name="profession" required />
+          </div>
+          <div class="form-group">
+            <label for="experience">Years of Experience</label>
+            <input type="number" id="experience" name="experience" min="0" required />
+          </div>
+          <div class="form-group">
+            <label for="expertise">Areas of Expertise</label>
+            <select multiple id="expertise" name="expertise" required>
+              <option value="technology">Technology</option>
+              <option value="business">Business</option>
+              <option value="marketing">Marketing</option>
+              <option value="finance">Finance</option>
+              <option value="healthcare">Healthcare</option>
+              <option value="education">Education</option>
+              <option value="leadership">Leadership</option>
+              <option value="entrepreneurship">Entrepreneurship</option>
+            </select>
+            <small>Hold Ctrl/Cmd to select multiple areas</small>
+          </div>
+          <div class="form-group">
+            <label for="previousMentoring">Previous Mentoring Experience</label>
+            <textarea id="previousMentoring" name="previousMentoring" rows="4"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="availability">Weekly Availability (hours)</label>
+            <input type="number" id="availability" name="availability" min="1" max="40" required />
+          </div>
+          <div class="form-group">
+            <label for="mentorMotivation">Why do you want to be a mentor?</label>
+            <textarea id="mentorMotivation" name="mentorMotivation" rows="4" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="mentorStyle">What is your mentoring style?</label>
+            <textarea id="mentorStyle" name="mentorStyle" rows="4" required></textarea>
+          </div>
+        </section>
+
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
     </div>
-    <footer>
-    </footer>
+    <footer></footer>
     <script src="js/signup-mentor.js"></script>
-</body>
-</html> 
+  </body>
+</html>

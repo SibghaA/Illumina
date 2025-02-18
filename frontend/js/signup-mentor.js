@@ -1,19 +1,17 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("mentorSignupForm");
-    
-    
+
   const notification = document.createElement("div");
   notification.className = "notification";
   document.body.appendChild(notification);
 
-  form.addEventListener("submit", async function(e) {
+  form.addEventListener("submit", async function (e) {
     e.preventDefault();
-        
+
     const formData = new FormData(form);
     const data = Object.fromEntries(formData);
 
     try {
-            
       const response = await fetch("/api/auth/signup", {
         method: "POST",
         headers: {
@@ -21,19 +19,16 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         body: JSON.stringify({
           ...data,
-          userType: "mentor"
-        })
+          userType: "mentor",
+        }),
       });
 
       if (response.ok) {
-                
         notification.textContent = "Successfully signed up! Redirecting to homepage...";
         notification.classList.add("show");
-                
-                
+
         form.classList.add("submitting");
-                
-                
+
         setTimeout(() => {
           window.location.href = "/";
         }, 2000);
@@ -48,4 +43,4 @@ document.addEventListener("DOMContentLoaded", function() {
       setTimeout(() => notification.classList.remove("show"), 3000);
     }
   });
-}); 
+});

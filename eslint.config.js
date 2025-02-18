@@ -34,8 +34,8 @@ export default [
       quotes: ["error", "double"],
       semi: ["error", "always"],
       "no-console": 0,
-      "no-unused-vars": ["error", { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }],
-      "no-case-declarations": "off"
+      "no-unused-vars": ["error", { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }],
+      "no-case-declarations": "off",
     },
   },
 ];

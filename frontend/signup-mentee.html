@@ -1,112 +1,111 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up as Mentee - Illumina</title>
-    <link rel="stylesheet" href="css/signup-styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/signup-styles.css" />
+  </head>
+  <body>
     <header>
-        <nav>
-            <div class="nav-links">
-                <a href="/frontend/index.html">Home</a>
-                <a href="/frontend/about.html">About</a>
-            </div>
-        </nav>
+      <nav>
+        <div class="nav-links">
+          <a href="/frontend/index.html">Home</a>
+          <a href="/frontend/about.html">About</a>
+        </div>
+      </nav>
     </header>
     <div class="container">
-        <form id="menteeSignupForm" class="signup-form">
-            <h2>Sign Up as a Mentee</h2>
-            
-            <section class="form-section">
-                <h3>Basic Information</h3>
-                <div class="form-group">
-                    <label for="firstName">First Name</label>
-                    <input type="text" id="firstName" name="firstName" required>
-                </div>
-                <div class="form-group">
-                    <label for="lastName">Last Name</label>
-                    <input type="text" id="lastName" name="lastName" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="dob">Date of Birth</label>
-                    <input type="date" id="dob" name="dob" required>
-                </div>
-                <div class="form-group">
-                    <label for="location">Location</label>
-                    <input type="text" id="location" name="location" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <div class="form-group">
-                    <label for="confirmPassword">Confirm Password</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" required>
-                </div>
-            </section>
+      <form id="menteeSignupForm" class="signup-form">
+        <h2>Sign Up as a Mentee</h2>
 
-            <section class="form-section">
-                <h3>Your Goals and Preferences</h3>
-                <div class="form-group">
-                    <label for="currentStatus">Current Status</label>
-                    <select id="currentStatus" name="currentStatus" required>
-                        <option value="">Select your status</option>
-                        <option value="student">Student</option>
-                        <option value="employed">Employed</option>
-                        <option value="seeking">Job Seeking</option>
-                        <option value="transitioning">Career Transition</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="education">Highest Education Level</label>
-                    <select id="education" name="education" required>
-                        <option value="">Select education level</option>
-                        <option value="highschool">High School</option>
-                        <option value="bachelors">Bachelor's Degree</option>
-                        <option value="masters">Master's Degree</option>
-                        <option value="phd">Ph.D.</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="interests">Areas of Interest</label>
-                    <select multiple id="interests" name="interests" required>
-                        <option value="technology">Technology</option>
-                        <option value="business">Business</option>
-                        <option value="marketing">Marketing</option>
-                        <option value="finance">Finance</option>
-                        <option value="healthcare">Healthcare</option>
-                        <option value="education">Education</option>
-                        <option value="leadership">Leadership</option>
-                        <option value="entrepreneurship">Entrepreneurship</option>
-                    </select>
-                    <small>Hold Ctrl/Cmd to select multiple areas</small>
-                </div>
-                <div class="form-group">
-                    <label for="goals">What are your career goals?</label>
-                    <textarea id="goals" name="goals" rows="4" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="mentorPreferences">What are you looking for in a mentor?</label>
-                    <textarea id="mentorPreferences" name="mentorPreferences" rows="4" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="menteeCommitment">How will you commit to the mentorship program?</label>
-                    <textarea id="menteeCommitment" name="menteeCommitment" rows="4" required></textarea>
-                </div>
-            </section>
+        <section class="form-section">
+          <h3>Basic Information</h3>
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" required />
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" name="dob" required />
+          </div>
+          <div class="form-group">
+            <label for="location">Location</label>
+            <input type="text" id="location" name="location" required />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required />
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required />
+          </div>
+        </section>
 
-            <button type="submit" class="submit-btn">Submit</button>
-        </form>
+        <section class="form-section">
+          <h3>Your Goals and Preferences</h3>
+          <div class="form-group">
+            <label for="currentStatus">Current Status</label>
+            <select id="currentStatus" name="currentStatus" required>
+              <option value="">Select your status</option>
+              <option value="student">Student</option>
+              <option value="employed">Employed</option>
+              <option value="seeking">Job Seeking</option>
+              <option value="transitioning">Career Transition</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="education">Highest Education Level</label>
+            <select id="education" name="education" required>
+              <option value="">Select education level</option>
+              <option value="highschool">High School</option>
+              <option value="bachelors">Bachelor's Degree</option>
+              <option value="masters">Master's Degree</option>
+              <option value="phd">Ph.D.</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="interests">Areas of Interest</label>
+            <select multiple id="interests" name="interests" required>
+              <option value="technology">Technology</option>
+              <option value="business">Business</option>
+              <option value="marketing">Marketing</option>
+              <option value="finance">Finance</option>
+              <option value="healthcare">Healthcare</option>
+              <option value="education">Education</option>
+              <option value="leadership">Leadership</option>
+              <option value="entrepreneurship">Entrepreneurship</option>
+            </select>
+            <small>Hold Ctrl/Cmd to select multiple areas</small>
+          </div>
+          <div class="form-group">
+            <label for="goals">What are your career goals?</label>
+            <textarea id="goals" name="goals" rows="4" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="mentorPreferences">What are you looking for in a mentor?</label>
+            <textarea id="mentorPreferences" name="mentorPreferences" rows="4" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="menteeCommitment">How will you commit to the mentorship program?</label>
+            <textarea id="menteeCommitment" name="menteeCommitment" rows="4" required></textarea>
+          </div>
+        </section>
+
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
     </div>
-    <footer>
-    </footer>
+    <footer></footer>
     <script src="js/signup-mentee.js"></script>
-</body>
-</html> 
+  </body>
+</html>

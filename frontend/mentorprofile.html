@@ -1,140 +1,154 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mentor Profile - Illumina</title>
-    <link rel="stylesheet" href="css/mentor-profile.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/mentor-profile.css" />
+  </head>
+  <body>
     <header>
-        <nav>
-            <div class="nav-links">
-                <a href="/frontend/index.html">Home</a>
-                <a href="/frontend/about.html">About</a>
-            </div>
-        </nav>
+      <nav>
+        <div class="nav-links">
+          <a href="/frontend/index.html">Home</a>
+          <a href="/frontend/about.html">About</a>
+        </div>
+      </nav>
     </header>
 
     <main class="container">
-        <div class="back-section">
-            <a href="/mentors" class="back-btn">← Back to All Mentors</a>
+      <div class="back-section">
+        <a href="/mentors" class="back-btn">← Back to All Mentors</a>
+      </div>
+
+      <div class="profile-container">
+        <div class="profile-sidebar">
+          <div class="quick-info">
+            <h1 id="mentorName">Loading...</h1>
+            <p id="mentorProfession" class="profession">Loading...</p>
+            <p id="mentorLocation" class="location">Loading...</p>
+            <button id="connectButton" class="connect-button">Connect with Mentor</button>
+          </div>
+          <div class="availability-info">
+            <h3>Availability</h3>
+            <p id="mentorAvailability">Loading...</p>
+          </div>
         </div>
 
-        <div class="profile-container">
-            <div class="profile-sidebar">
-                <div class="quick-info">
-                    <h1 id="mentorName">Loading...</h1>
-                    <p id="mentorProfession" class="profession">Loading...</p>
-                    <p id="mentorLocation" class="location">Loading...</p>
-                    <button id="connectButton" class="connect-button">Connect with Mentor</button>
-                </div>
-                <div class="availability-info">
-                    <h3>Availability</h3>
-                    <p id="mentorAvailability">Loading...</p>
-                </div>
+        <div class="profile-main">
+          <section class="profile-section">
+            <h2>Areas of Expertise</h2>
+            <div id="expertiseContainer" class="expertise-tags"></div>
+          </section>
+
+          <section class="profile-section">
+            <h2>Professional Experience</h2>
+            <div class="experience-details">
+              <p id="mentorExperience">Loading...</p>
             </div>
+          </section>
 
-            <div class="profile-main">
-                <section class="profile-section">
-                    <h2>Areas of Expertise</h2>
-                    <div id="expertiseContainer" class="expertise-tags"></div>
-                </section>
+          <section class="profile-section">
+            <h2>About Me</h2>
+            <p id="mentorAbout">Loading...</p>
+          </section>
 
-                <section class="profile-section">
-                    <h2>Professional Experience</h2>
-                    <div class="experience-details">
-                        <p id="mentorExperience">Loading...</p>
-                    </div>
-                </section>
+          <section class="profile-section">
+            <h2>Mentoring Style</h2>
+            <p id="mentorStyle">Loading...</p>
+          </section>
 
-                <section class="profile-section">
-                    <h2>About Me</h2>
-                    <p id="mentorAbout">Loading...</p>
-                </section>
-
-                <section class="profile-section">
-                    <h2>Mentoring Style</h2>
-                    <p id="mentorStyle">Loading...</p>
-                </section>
-
-                <section class="profile-section">
-                    <h2>Previous Mentoring Experience</h2>
-                    <p id="previousMentoring">Loading...</p>
-                </section>
-            </div>
+          <section class="profile-section">
+            <h2>Previous Mentoring Experience</h2>
+            <p id="previousMentoring">Loading...</p>
+          </section>
         </div>
+      </div>
 
-        <div id="connectionModal" class="modal">
-            <div class="modal-content">
-                <span class="close-modal">&times;</span>
-                <h2>Connect with <span id="modalMentorName">...</span></h2>
-                <form id="connectionForm" class="connection-form">
-                    <div class="form-group">
-                        <label for="requesterName">Your Name:</label>
-                        <input type="text" id="requesterName" name="requesterName" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="requesterEmail">Your Email:</label>
-                        <input type="email" id="requesterEmail" name="requesterEmail" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="requesterProfession">Current Profession:</label>
-                        <input type="text" id="requesterProfession" name="requesterProfession" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Introduce Yourself:</label>
-                        <textarea id="message" name="message" rows="4" 
-                            placeholder="Share a bit about yourself and why you'd like to connect..."
-                            required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="goals">Your Goals:</label>
-                        <textarea id="goals" name="goals" rows="4"
-                            placeholder="What specific goals would you like to achieve through this mentorship?"
-                            required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Request</button>
-                </form>
+      <div id="connectionModal" class="modal">
+        <div class="modal-content">
+          <span class="close-modal">&times;</span>
+          <h2>Connect with <span id="modalMentorName">...</span></h2>
+          <form id="connectionForm" class="connection-form">
+            <div class="form-group">
+              <label for="requesterName">Your Name:</label>
+              <input type="text" id="requesterName" name="requesterName" required />
             </div>
+            <div class="form-group">
+              <label for="requesterEmail">Your Email:</label>
+              <input type="email" id="requesterEmail" name="requesterEmail" required />
+            </div>
+            <div class="form-group">
+              <label for="requesterProfession">Current Profession:</label>
+              <input type="text" id="requesterProfession" name="requesterProfession" required />
+            </div>
+            <div class="form-group">
+              <label for="message">Introduce Yourself:</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                placeholder="Share a bit about yourself and why you'd like to connect..."
+                required
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label for="goals">Your Goals:</label>
+              <textarea
+                id="goals"
+                name="goals"
+                rows="4"
+                placeholder="What specific goals would you like to achieve through this mentorship?"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Request</button>
+          </form>
         </div>
+      </div>
     </main>
     <footer>
-        <div class="social-links">
-            <a href="#" class="social-icon">
-                <svg class="social-svg linkedin" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                    <rect x="2" y="9" width="4" height="12"></rect>
-                    <circle cx="4" cy="4" r="2"></circle>
-                </svg>
-            </a>
-            <a href="#" class="social-icon">
-                <svg class="social-svg twitter" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
-                </svg>
-            </a>
-            <a href="#" class="social-icon">
-                <svg class="social-svg instagram" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                </svg>
-            </a>
-            <a href="#" class="social-icon">
-                <svg class="social-svg facebook" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                </svg>
-            </a>
-            <a href="#" class="social-icon">
-                <svg class="social-svg youtube" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
-                    <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
-                </svg>
-            </a>
-        </div>
-        <p>&copy; 2025 Illumina. All rights reserved.</p>
+      <div class="social-links">
+        <a href="#" class="social-icon">
+          <svg class="social-svg linkedin" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+            ></path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+        </a>
+        <a href="#" class="social-icon">
+          <svg class="social-svg twitter" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"
+            ></path>
+          </svg>
+        </a>
+        <a href="#" class="social-icon">
+          <svg class="social-svg instagram" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+        <a href="#" class="social-icon">
+          <svg class="social-svg facebook" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+          </svg>
+        </a>
+        <a href="#" class="social-icon">
+          <svg class="social-svg youtube" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"
+            ></path>
+            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+          </svg>
+        </a>
+      </div>
+      <p>&copy; 2025 Illumina. All rights reserved.</p>
     </footer>
 
     <script src="/frontend/js/mentorprofile.js"></script>
-</body>
+  </body>
 </html>

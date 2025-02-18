@@ -18,27 +18,27 @@ router.post("/", async (req, res) => {
   try {
     const db = await connectToDatabase();
     const { name, email, message } = req.body;
-    
+
     const newMessage = {
       name,
       email,
       message,
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
     };
-    
+
     await db.collection("messages").insertOne(newMessage);
-    
+
     res.status(201).json({
       success: true,
-      message: "Message sent successfully"
+      message: "Message sent successfully",
     });
   } catch (error) {
     console.error("Error saving message:", error);
     res.status(500).json({
       success: false,
-      message: "Failed to send message"
+      message: "Failed to send message",
     });
   }
 });
 
-export default router; 
+export default router;

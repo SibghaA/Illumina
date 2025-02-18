@@ -1,9 +1,7 @@
-document.addEventListener("DOMContentLoaded", async function() {
-    
+document.addEventListener("DOMContentLoaded", async function () {
   const urlParams = new URLSearchParams(window.location.search);
   const mentorId = urlParams.get("id");
 
-    
   const mentorName = document.getElementById("mentorName");
   const mentorProfession = document.getElementById("mentorProfession");
   const mentorLocation = document.getElementById("mentorLocation");
@@ -15,7 +13,6 @@ document.addEventListener("DOMContentLoaded", async function() {
   const previousMentoring = document.getElementById("previousMentoring");
   const modalMentorName = document.getElementById("modalMentorName");
 
-    
   const connectButton = document.getElementById("connectButton");
   const connectionModal = document.getElementById("connectionModal");
   const closeModal = document.querySelector(".close-modal");
@@ -29,17 +26,15 @@ document.addEventListener("DOMContentLoaded", async function() {
       connectionModal.style.display = "none";
     });
 
-    window.addEventListener("click", (event) => {
+    window.addEventListener("click", event => {
       if (event.target === connectionModal) {
         connectionModal.style.display = "none";
       }
     });
   }
 
-    
   const connectionForm = document.getElementById("connectionForm");
 
-    
   const notification = document.createElement("div");
   notification.className = "notification";
   document.body.appendChild(notification);
@@ -48,18 +43,18 @@ document.addEventListener("DOMContentLoaded", async function() {
     const response = await fetch(`/api/mentors/${mentorId}`);
     const mentor = await response.json();
 
-        
-    mentorName.textContent = `${mentor.firstName} ${mentor.lastName}`; 
+    mentorName.textContent = `${mentor.firstName} ${mentor.lastName}`;
     mentorProfession.textContent = mentor.profession;
     mentorLocation.textContent = mentor.location;
     if (mentorAvailability) mentorAvailability.textContent = mentor.availability;
     if (mentorExperience) mentorExperience.textContent = mentor.experience;
     if (mentorAbout) mentorAbout.textContent = mentor.about;
     if (mentorStyle) mentorStyle.textContent = mentor.mentorStyle;
-    if (previousMentoring) previousMentoring.textContent = mentor.previousMentoring || "No previous mentoring experience listed";
+    if (previousMentoring)
+      previousMentoring.textContent =
+        mentor.previousMentoring || "No previous mentoring experience listed";
     if (modalMentorName) modalMentorName.textContent = `${mentor.firstName} ${mentor.lastName}`;
 
-        
     if (expertiseContainer) {
       expertiseContainer.innerHTML = mentor.expertise
         .map(tag => `<span class="expertise-tag">${tag}</span>`)
@@ -67,9 +62,9 @@ document.addEventListener("DOMContentLoaded", async function() {
     }
 
     if (connectionForm) {
-      connectionForm.addEventListener("submit", async (e) => {
+      connectionForm.addEventListener("submit", async e => {
         e.preventDefault();
-                
+
         const formData = new FormData(connectionForm);
         const data = {
           mentorId: mentorId,
@@ -78,7 +73,7 @@ document.addEventListener("DOMContentLoaded", async function() {
           requesterEmail: formData.get("requesterEmail"),
           requesterProfession: formData.get("requesterProfession"),
           message: formData.get("message"),
-          goals: formData.get("goals")
+          goals: formData.get("goals"),
         };
 
         try {
@@ -87,20 +82,17 @@ document.addEventListener("DOMContentLoaded", async function() {
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(data),
           });
 
           if (response.ok) {
-                        
             notification.textContent = "Connection request sent successfully!";
             notification.style.backgroundColor = "#4CAF50";
             notification.classList.add("show");
-                        
-                        
+
             connectionForm.reset();
             connectionModal.style.display = "none";
-                        
-                        
+
             setTimeout(() => {
               notification.classList.remove("show");
             }, 3000);
@@ -108,20 +100,18 @@ document.addEventListener("DOMContentLoaded", async function() {
             throw new Error("Failed to send connection request");
           }
         } catch (error) {
-                    
           notification.textContent = "Failed to send connection request. Please try again.";
           notification.style.backgroundColor = "#dc3545";
           notification.classList.add("show");
-                    
+
           setTimeout(() => {
             notification.classList.remove("show");
           }, 3000);
         }
       });
     }
-
   } catch (error) {
     console.error("Error fetching mentor:", error);
     mentorName.textContent = "Error loading mentor";
   }
-}); 
+});

@@ -1,5 +1,5 @@
-import { MongoClient } from 'mongodb';
-import dotenv from 'dotenv';
+import { MongoClient } from "mongodb";
+import dotenv from "dotenv";
 
 const uri = dotenv.config().parsed.MONGODB_URI;
 const client = new MongoClient(uri);
@@ -9,7 +9,7 @@ let db;
 async function connectToDatabase() {
   try {
     if (!process.env.MONGODB_PASSWORD) {
-      throw new Error('MONGODB_PASSWORD environment variable is not set');
+      throw new Error("MONGODB_PASSWORD environment variable is not set");
     }
     await client.connect();
     db = client.db(process.env.MONGODB_DATABASE || "Illumina");
@@ -22,7 +22,7 @@ async function connectToDatabase() {
 }
 
 function getCollection(collectionName) {
-    return db.collection(collectionName);
+  return db.collection(collectionName);
 }
 
-export { connectToDatabase, getCollection, client }; 
+export { connectToDatabase, getCollection, client };

@@ -1,14 +1,12 @@
-document.addEventListener("DOMContentLoaded", async function() {
+document.addEventListener("DOMContentLoaded", async function () {
   const mentorsGrid = document.querySelector(".mentors-grid");
-    
+
   try {
     const response = await fetch("/api/mentors");
     const mentors = await response.json();
-        
-        
+
     mentorsGrid.innerHTML = "";
-        
-        
+
     mentors.forEach(mentor => {
       const mentorCard = document.createElement("div");
       mentorCard.className = "mentor-card";
@@ -24,4 +22,4 @@ document.addEventListener("DOMContentLoaded", async function() {
     console.error("Error fetching mentors:", error);
     mentorsGrid.innerHTML = "<p>Failed to load mentors. Please try again later.</p>";
   }
-}); 
+});

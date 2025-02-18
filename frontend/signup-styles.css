@@ -1,379 +1,386 @@
 header {
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    padding: 1rem 2rem;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 1rem 2rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
 }
 
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .nav-links {
-    display: flex;
-    gap: 2rem;
+  display: flex;
+  gap: 2rem;
 }
 
 .nav-links a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    transition: color 0.3s ease;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: #40E0D0;
+  color: #40e0d0;
 }
 
-
 .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
+  list-style: none;
+  display: flex;
+  gap: 2rem;
 }
 
 nav a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    transition: color 0.3s ease;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 nav a:hover {
-    color: #40E0D0;
+  color: #40e0d0;
 }
 
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Open Sans', sans-serif;
-    line-height: 1.6;
-    background-color: #f5f5f5;
-    color: #333;
-    padding-top: 70px; }
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.6;
+  background-color: #f5f5f5;
+  color: #333;
+  padding-top: 70px;
+}
 
 .container {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 2rem 1rem; }
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem 1rem;
+}
 
 .signup-form {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
-    color: #40E0D0;
-    margin-bottom: 1.5rem;
-    text-align: center;
+  color: #40e0d0;
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 .form-description {
-    text-align: center;
-    color: #666;
-    margin-bottom: 2rem;
+  text-align: center;
+  color: #666;
+  margin-bottom: 2rem;
 }
 
 .signup-options {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 2rem;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 2rem;
 }
 
 .signup-options h2 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 1rem;
+  text-align: center;
+  color: #333;
+  margin-bottom: 1rem;
 }
 
 .form-description {
-    text-align: center;
-    color: #666;
-    margin-bottom: 2rem;
+  text-align: center;
+  color: #666;
+  margin-bottom: 2rem;
 }
 
 .role-selection {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
 .role-option {
-    background: white;
-    border-radius: 10px;
-    padding: 2rem;
-    text-decoration: none;
-    color: #333;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 200px;
+  background: white;
+  border-radius: 10px;
+  padding: 2rem;
+  text-decoration: none;
+  color: #333;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 200px;
 }
 
 .role-option:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-    background-color: #f8f9fa;
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  background-color: #f8f9fa;
 }
 
 .role-content h3 {
-    color: #40E0D0;
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+  color: #40e0d0;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .role-content p {
-    color: #666;
-    line-height: 1.5;
+  color: #666;
+  line-height: 1.5;
 }
 
 .form-group {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: #444;
-    font-weight: 500;
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #444;
+  font-weight: 500;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="date"],
-input[type="number"],
+input[type='text'],
+input[type='email'],
+input[type='date'],
+input[type='number'],
 select,
 textarea {
-    width: 100%;
-    padding: 0.8rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
 }
 
 input:focus,
 select:focus,
 textarea:focus {
-    outline: none;
-    border-color: #40E0D0;
+  outline: none;
+  border-color: #40e0d0;
 }
 
 select[multiple] {
-    height: 120px;
+  height: 120px;
 }
 
 textarea {
-    resize: vertical;
-    min-height: 100px;
+  resize: vertical;
+  min-height: 100px;
 }
 
 .form-step {
-    display: none;
+  display: none;
 }
 
 .form-step:first-child {
-    display: block;
+  display: block;
 }
 
 .form-navigation {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 2rem;
-    padding-top: 1rem;
-    border-top: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
 }
 
 .btn-back,
 .btn-next,
 .btn-submit {
-    padding: 0.8rem 2rem;
-    border: none;
-    border-radius: 25px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .btn-back {
-    background-color: #f8f9fa;
-    color: #666;
+  background-color: #f8f9fa;
+  color: #666;
 }
 
 .btn-next,
 .btn-submit {
-    background-color: #40E0D0;
-    color: white;
+  background-color: #40e0d0;
+  color: white;
 }
 
 .btn-back:hover {
-    background-color: #e2e6ea;
+  background-color: #e2e6ea;
 }
 
 .btn-next:hover,
 .btn-submit:hover {
-    background-color: #ff45a0;
+  background-color: #ff45a0;
 }
 
 .signup-form {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin-top: 1rem; }
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 1rem;
+}
 
 @media (max-width: 768px) {
-    header {
-        height: 60px;     }
-    
-    body {
-        padding-top: 60px;     }
+  header {
+    height: 60px;
+  }
 
-    .container {
-        margin: 1rem auto;
-        padding: 1rem;
-    }
+  body {
+    padding-top: 60px;
+  }
 
-    .signup-form {
-        padding: 1.5rem;
-    }
+  .container {
+    margin: 1rem auto;
+    padding: 1rem;
+  }
 
-    .role-selection {
-        grid-template-columns: 1fr;
-    }
-    
-    .role-option {
-        min-height: 150px;
-    }
+  .signup-form {
+    padding: 1.5rem;
+  }
+
+  .role-selection {
+    grid-template-columns: 1fr;
+  }
+
+  .role-option {
+    min-height: 150px;
+  }
 }
 
 .error {
-    border-color: #dc3545;
+  border-color: #dc3545;
 }
 
 .error-message {
-    color: #dc3545;
-    font-size: 0.875rem;
-    margin-top: 0.25rem;
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
 }
 
 label.required::after {
-    content: "*";
-    color: #dc3545;
-    margin-left: 0.25rem;
+  content: '*';
+  color: #dc3545;
+  margin-left: 0.25rem;
 }
 
 .success {
-    border-color: #28a745;
+  border-color: #28a745;
 }
 
 .loading {
-    opacity: 0.7;
-    pointer-events: none;
+  opacity: 0.7;
+  pointer-events: none;
 }
 
 .submitting {
-    opacity: 0.7;
-    pointer-events: none;
+  opacity: 0.7;
+  pointer-events: none;
 }
 
 .notification {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: #4CAF50;
-    color: white;
-    padding: 15px 25px;
-    border-radius: 4px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    transform: translateX(200%);
-    transition: transform 0.3s ease;
-    z-index: 1000;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #4caf50;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transform: translateX(200%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
 }
 
 .notification.show {
-    transform: translateX(0);
+  transform: translateX(0);
 }
 
 @keyframes fadeOut {
-    from { opacity: 1; }
-    to { opacity: 0; }
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 footer {
-    background-color: #333;
-    color: white;
-    padding: 2rem;
-    text-align: center;
+  background-color: #333;
+  color: white;
+  padding: 2rem;
+  text-align: center;
 }
 
 .social-links {
-    margin-bottom: 1.5rem;
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
 }
 
 .social-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
 }
 
 .social-icon:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    transform: translateY(-3px);
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
 }
 
 .social-svg {
-    width: 20px;
-    height: 20px;
-    fill: none;
-    stroke: white;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: white;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .social-icon:hover .linkedin {
-    stroke: #0077b5;
+  stroke: #0077b5;
 }
 
 .social-icon:hover .twitter {
-    stroke: #1DA1F2;
+  stroke: #1da1f2;
 }
 
 .social-icon:hover .instagram {
-    stroke: #E4405F;
+  stroke: #e4405f;
 }
 
 .social-icon:hover .facebook {
-    stroke: #1877F2;
+  stroke: #1877f2;
 }
 
 .social-icon:hover .youtube {
-    stroke: #FF0000;
+  stroke: #ff0000;
 }
