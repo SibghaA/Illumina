@@ -1,15 +1,15 @@
-document.addEventListener("DOMContentLoaded", async function () {
-  const mentorsGrid = document.querySelector(".mentors-grid");
+document.addEventListener('DOMContentLoaded', async function () {
+  const mentorsGrid = document.querySelector('.mentors-grid');
 
   try {
-    const response = await fetch("/api/mentors");
+    const response = await fetch('/api/mentors');
     const mentors = await response.json();
 
-    mentorsGrid.innerHTML = "";
+    mentorsGrid.innerHTML = '';
 
     mentors.forEach(mentor => {
-      const mentorCard = document.createElement("div");
-      mentorCard.className = "mentor-card";
+      const mentorCard = document.createElement('div');
+      mentorCard.className = 'mentor-card';
       mentorCard.innerHTML = `
                 <h3>${mentor.firstName} ${mentor.lastName}</h3>
                 <p class="profession">${mentor.profession}</p>
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       mentorsGrid.appendChild(mentorCard);
     });
   } catch (error) {
-    console.error("Error fetching mentors:", error);
-    mentorsGrid.innerHTML = "<p>Failed to load mentors. Please try again later.</p>";
+    console.error('Error fetching mentors:', error);
+    mentorsGrid.innerHTML = '<p>Failed to load mentors. Please try again later.</p>';
   }
 });

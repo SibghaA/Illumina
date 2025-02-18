@@ -1,12 +1,12 @@
-import express from "express";
-import { connectToDatabase } from "../db/mongodb.js";
+import express from 'express';
+import { connectToDatabase } from '../db/mongodb.js';
 
 const router = express.Router();
 
-router.post("/", async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const db = await connectToDatabase();
-    const connections = db.collection("connections");
+    const connections = db.collection('connections');
 
     const newConnection = {
       mentorId: req.body.mentorId,
@@ -16,7 +16,7 @@ router.post("/", async (req, res) => {
       requesterProfession: req.body.requesterProfession,
       message: req.body.message,
       goals: req.body.goals,
-      status: "pending",
+      status: 'pending',
       timestamp: new Date().toISOString(),
     };
 
@@ -24,14 +24,14 @@ router.post("/", async (req, res) => {
 
     res.status(201).json({
       success: true,
-      message: "Connection request sent successfully",
+      message: 'Connection request sent successfully',
       connectionId: result.insertedId,
     });
   } catch (error) {
-    console.error("Error saving connection request:", error);
+    console.error('Error saving connection request:', error);
     res.status(500).json({
       success: false,
-      message: "Failed to send connection request",
+      message: 'Failed to send connection request',
     });
   }
 });

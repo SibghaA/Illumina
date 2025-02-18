@@ -5,6 +5,7 @@ Illumina is a web platform that connects women navigating the intersection of ca
 ## Project Overview
 
 The platform serves as a bridge between mentees seeking guidance and mentors willing to share their experiences, particularly focusing on:
+
 - Career transitions during pregnancy and motherhood
 - Work-life balance strategies
 - Professional development while managing family responsibilities
@@ -22,10 +23,10 @@ Sibgha Ahmad
 - Design Document: https://docs.google.com/document/d/1OnWGNHL43OjSklnoUQiKFEnq0m7vwo3Iz1cmOtvL5hE/edit?usp=sharing
 - Deployed Application: https://illumina-r8woazknx-sibgha-ahmads-projects.vercel.app
 
-
 ## Features
 
 ### For Mentees
+
 - Browse and connect with experienced mentors
 - Detailed mentor profiles with expertise and availability information
 - Secure messaging system for mentor communication
@@ -33,6 +34,7 @@ Sibgha Ahmad
 - Resource library for professional development
 
 ### For Mentors
+
 - Customizable mentor profiles
 - Availability management system
 - Connection request handling
@@ -42,12 +44,14 @@ Sibgha Ahmad
 ## Technical Stack
 
 ### Frontend
+
 - HTML5
 - CSS3
 - JavaScript (ES6+)
 - Responsive design for mobile and desktop viewing
 
 ### API Endpoints
+
 - `/api/mentors` - Mentor listing and profile management
 - `/api/auth/signup` - User registration
 - `/api/connections` - Mentor-mentee connection management
@@ -79,18 +83,21 @@ illumina/
 ## Setup and Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/your-username/illumina.git
 cd illumina
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Configure environment variables:
-Create a `.env` file in the root directory with the following variables:
+   Create a `.env` file in the root directory with the following variables:
+
 ```
 DB_CONNECTION_STRING=your_database_connection_string
 JWT_SECRET=your_jwt_secret
@@ -98,6 +105,7 @@ API_KEY=your_api_key
 ```
 
 4. Start the development server:
+
 ```bash
 npm run dev
 ```
@@ -105,4 +113,3 @@ npm run dev
 ## License
 
 This project is licensed under the MIT License - see the LICENSE.md file for details.
-
